@@ -24,32 +24,29 @@ const ColorList = ({ colors, updateColors }) => {
     // think about where will you get the id from...
     // where is is saved right now?
 
+    // axiosWithAuth()
+    // .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
+    //  .then(res => { 
+    //    console.log(colorToEdit) 
+    //    updateColors(res.data)
+    //  }) 
+    //    .catch(err => console.log(err));
+
     axiosWithAuth()
     .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
-     .then(res => { 
-       console.log(colorToEdit) 
-       updateColors(res.data)
-     }) 
-       .catch(err => console.log(err));
-
-      //  axiosWithAuth()
-      //  .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
-      //   .then(res => {  
-      //      updateColors(
-      //        colors.map(color => {
-      //          if (color.id === res.data.id) {
-      //            return res.data
-      //          }else {
-      //            return color;
-      //          }
-      //        })
-      //   })
-      //   .catch(err => console.log(err,'edit error'));
-    
-
-
-
-  };
+     .then(res => {  
+      updateColors(
+        colors.map(color => {
+          if (color.id === res.data.id) {
+            return res.data
+          }else {
+            return color;
+          }
+        })
+        
+     )})
+     .catch(err => console.log(err,'edit error'));
+    };
 
 
     
