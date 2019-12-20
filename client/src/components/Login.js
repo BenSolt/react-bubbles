@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import axiosWithAuth from '../utils/AxiosWithAuth';
+// import axios from 'axios';
 
 const initialState = {
-  credentials: {
+  
     username: '',
     password: ''
-  }
+  
 };
 
 const Login = props => {
@@ -25,7 +26,7 @@ const Login = props => {
 
  const loginUser = e => {
   e.preventDefault();
-    //axios
+  console.log(user)
     axiosWithAuth()
     .post("/api/login", user)
     .then(res => {

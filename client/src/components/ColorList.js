@@ -32,6 +32,23 @@ const ColorList = ({ colors, updateColors }) => {
      }) 
        .catch(err => console.log(err));
 
+      //  axiosWithAuth()
+      //  .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
+      //   .then(res => {  
+      //      updateColors(
+      //        colors.map(color => {
+      //          if (color.id === res.data.id) {
+      //            return res.data
+      //          }else {
+      //            return color;
+      //          }
+      //        })
+      //   })
+      //   .catch(err => console.log(err,'edit error'));
+    
+
+
+
   };
 
 
@@ -47,7 +64,7 @@ const ColorList = ({ colors, updateColors }) => {
       console.log(color, 'delete color')
       updateColors(colors.filter(color => color.id !== res.data))
     })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err, 'delete fail'));
 
   };
 
