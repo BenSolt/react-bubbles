@@ -25,7 +25,7 @@ const ColorList = ({ colors, updateColors }) => {
     // where is is saved right now?
 
     axiosWithAuth()
-    .put(`/colors/${colorToEdit.id}`, colorToEdit)
+    .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
      .then(res => { 
        console.log(colorToEdit) 
        updateColors(res.data)
@@ -42,10 +42,10 @@ const ColorList = ({ colors, updateColors }) => {
   const deleteColor = color => {
     // make a delete request to delete this color
     axiosWithAuth()
-      .delete(`/colors/${color.id}`)
+      .delete(`/api/colors/${color.id}`)
       .then(res => {
       console.log(color, 'delete color')
-     updateColors(res.data);
+      updateColors(colors.filter(color => color.id !== res.data))
     })
       .catch(err => console.log(err));
 

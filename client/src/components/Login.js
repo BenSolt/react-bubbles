@@ -23,11 +23,11 @@ const Login = props => {
   })
 }
 
- const login = e => {
+ const loginUser = e => {
   e.preventDefault();
     //axios
     axiosWithAuth()
-    .post("/login", user)
+    .post("/api/login", user)
     .then(res => {
       localStorage.setItem('token', res.data.payload);
       console.log(res.data.payload)
@@ -35,7 +35,7 @@ const Login = props => {
       props.history.push('/bubblespage');
     })
     .catch(err => console.log(err));
-    console.log('Login error')
+    console.log('Login error post')
 };
 
 
@@ -45,7 +45,7 @@ const Login = props => {
       <h1>Welcome to the Bubble App!</h1>
       <p>Build a login page here</p>
 
-      <form onSubmit={login}>
+      <form onSubmit={loginUser}>
         <input className='input'
           type="text"
           name="username"
@@ -67,11 +67,6 @@ const Login = props => {
       </form>
     </div> 
     
-
-
-
-
-    </>
   );
 };
 
